@@ -1,12 +1,10 @@
 package main
 
 import (
-	"github.com/jackinthebox52/alg-practice/internal/benchmark"
 	"github.com/jackinthebox52/alg-practice/internal/algorithms"
+	"github.com/jackinthebox52/alg-practice/internal/benchmark"
 )
 
 func main() {
-	benchmark.CompareSearchFunctions(algorithms.LinearSearch, algorithms.BinarySearch, 10000)
-	//benchmark.BenchmarkSearchFunction(algorithms.LinearSearch)
-	//benchmark.BenchmarkSearchFunction(algorithms.BinarySearch)
+	benchmark.CompareSearchFunctions([]benchmark.Fn{algorithms.LinearSearch, algorithms.BinarySearch, algorithms.InterpolationSearch}, 10000)
 }
