@@ -1,5 +1,10 @@
 package algorithms
 
+import (
+	"math/rand"
+	"time"
+)
+
 // MergeSort sorts a slice of integers using the Merge Sort algorithm. It returns a slice of integers.
 // It has an average time complexity of O(n log n) and a worst case time complexity of O(n log n).
 func MergeSort(a []int) []int {
@@ -71,6 +76,29 @@ func TimSort(a []int) []int {
 	}
 
 	return runs[0]
+}
+
+// QuickSort sorts a slice of integers using the Quick Sort algorithm. It returns a slice of integers.
+// It has an average time complexity of O(n log n) and a worst case time complexity of O(n^2).
+func QuickSort(a []int) []int {
+	source := rand.NewSource(time.Now().UnixNano())
+	random := rand.New(source)
+	if len(a) < 2 {
+		return a
+	}
+	left, right := 0, len(a)-1
+	pivot := random.Int() % len(a)
+	a[pivot], a[right] = a[right], a[pivot]
+	for i := range a {
+		if a[i] < a[right] {
+			a[left], a[i] = a[i], a[left]
+			left++
+		}
+	}
+	a[left], a[right] = a[right], a[left]
+	QuickSort(a[:left])
+	QuickSort(a[left+1:])
+	return a
 }
 
 // InsertionSort sorts a slice of integers using the Insertion Sort algorithm. It returns a slice of integers.
