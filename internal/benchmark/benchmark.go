@@ -117,5 +117,5 @@ func CompareSortFunctions(functions []SortFn_T, iter int, maxRangeLength int, ma
 		fmt.Printf(" -- %v: %v", result.name, result.time)
 	}
 	fmt.Println()
-	fmt.Printf("--------------------------------------------------------------------------------------------  Benchmark took %v\n", time.Since(start))
+	log.Printf("Benchmark took %v\n", time.Since(start))
 }
