@@ -6,5 +6,6 @@ import (
 )
 
 func main() {
-	benchmark.CompareSearchFunctions([]benchmark.Fn{algorithms.LinearSearch, algorithms.BinarySearch, algorithms.InterpolationSearch}, 10000)
+	//benchmark.CompareSearchFunctions([]benchmark.SearchFn_T{algorithms.LinearSearch, algorithms.BinarySearch, algorithms.InterpolationSearch}, 10000)
+	benchmark.CompareSortFunctions([]benchmark.SortFn_T{algorithms.BubbleSort, algorithms.InsertionSort, algorithms.MergeSort, algorithms.TimSort}, 5000, 1000, 5000)
 }
